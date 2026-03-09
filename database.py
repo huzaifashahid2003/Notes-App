@@ -6,7 +6,7 @@ import os
 
 load_dotenv()
 
-DATABASE_URL ="postgresql://postgres:1234@localhost:5432/notesdb"
+DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://postgres:1234@localhost:5432/notesdb")
 
 engine = create_engine(DATABASE_URL)
 
