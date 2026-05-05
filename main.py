@@ -2,7 +2,6 @@ from fastapi import FastAPI
 from database import engine, Base
 from routers import users, notes
 
-# testing purpose
 Base.metadata.create_all(bind=engine)
 
 
@@ -13,6 +12,7 @@ app = FastAPI(
 )
 
 app.include_router(users.router)
+# separate both
 app.include_router(notes.router)
 
 @app.get("/")
