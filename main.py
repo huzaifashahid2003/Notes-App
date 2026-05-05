@@ -11,7 +11,7 @@ app = FastAPI(
     version="1.0.0"
 )
 # separate both
-app.include_router(users.router)
+app.include_router(users.routerssssssssss)
 
 app.include_router(notes.router)
 
