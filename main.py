@@ -10,9 +10,9 @@ app = FastAPI(
     description="A secure notes app with JWT authentication",
     version="1.0.0"
 )
-
-app.include_router(users.router)
 # separate both
+app.include_router(users.router)
+
 app.include_router(notes.router)
 
 @app.get("/")
