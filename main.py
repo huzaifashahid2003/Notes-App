@@ -2,8 +2,10 @@ from fastapi import FastAPI
 from database import engine, Base
 from routers import users, notes
 
-# Database tables banao
+#testing purpose
+
 Base.metadata.create_all(bind=engine)
+
 
 app = FastAPI(
     title="Personal Notes API",
@@ -11,10 +13,18 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Routers add karo
 app.include_router(users.router)
 app.include_router(notes.router)
 
 @app.get("/")
 def root():
     return {"message": "Welcome to Notes API! 📝"}
+
+
+@app.post("/")
+def create_post(post: PostCreate, db: Session = Depends(get_db)):
+    new_post = Post(title=post.title, content=post.content, user_id=1)
+    db.add(new_post)
+    db.commit()     
+    db.refresh(new_post)
+    return new_post
