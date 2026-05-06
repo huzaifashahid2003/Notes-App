@@ -15,8 +15,8 @@ app.include_router(users.routerssssssssss)
 
 app.include_router(notes.router)
 
-
 # separate both
+
 @app.get("/")
 def root():
     return {"message": "Welcome to Notes API! 📝"}
