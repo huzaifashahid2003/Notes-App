@@ -26,5 +26,5 @@ def create_post(post: PostCreate, db: Session = Depends(get_db)):
     new_post = Post(title=post.title, content=post.content, user_id=1)
     db.add(new_post)
     db.commit()     
-    db.refresh(new_postsssss)
+    db.refresh(new_posts)
     return new_post
