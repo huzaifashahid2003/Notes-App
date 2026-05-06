@@ -13,9 +13,9 @@ app = FastAPI(
 # test comment
 app.include_router(users.routerssssssssss)
 
-# separate both
 app.include_router(notes.router)
 
+# separate both
 @app.get("/")
 def root():
     return {"message": "Welcome to Notes API! 📝"}
