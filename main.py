@@ -15,12 +15,12 @@ app.include_router(users.routerssssssssss)
 
 app.include_router(notes.router)
 
-
+# separate both
 @app.get("/")
 def root():
     return {"message": "Welcome to Notes API! 📝"}
 
-# separate both
+
 @app.post("/")
 def create_post(post: PostCreate, db: Session = Depends(get_db)):
     new_post = Post(title=post.title, content=post.content, user_id=1)
