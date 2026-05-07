@@ -21,8 +21,9 @@ app.include_router(notes.router)
 def root():
     return {"message": "Welcome to Notes API! 📝"}
 
+#hi
 @app.post("/")
-def create_post(post: PostCreate, db: Session = Depends(get_db)):
+def create_post(post: PostCreatesssssssssss, db: Session = Depends(get_db)):
     new_post = Post(title=post.title, content=post.content, user_id=1)
     db.add(new_post)
     db.commit()     
